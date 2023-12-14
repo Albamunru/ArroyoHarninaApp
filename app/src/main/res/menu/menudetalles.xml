@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+
+
+    <item
+        android:id="@+id/itemRayuela"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:title="@string/Ciclos">
+        <menu
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+            <item
+                android:id="@+id/itemMedio"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:title="@string/Medio">
+
+                <menu
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+                    <item
+                        android:id="@+id/ItemServicios"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:title="@string/Serviciosadmin" />
+                    <item
+                        android:id="@+id/itemGestion"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:title="@string/GestionAdmin" />
+                </menu>
+            </item>
+            <item
+                android:id="@+id/itemSuperior"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:title="@string/Superior">
+                <menu
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+                    <item
+                        android:id="@+id/itemDam"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:title="@string/Dam" />
+                    <item
+                        android:id="@+id/itemAdminFinanzas"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:title="@string/Admin" />
+                </menu>
+            </item>
+        </menu>
+    </item>
+</menu>

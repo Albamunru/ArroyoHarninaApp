@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">Alba Arroyo Harnina Ud 3</string>
+    <string name="Ciclos">Ciclos</string>
+    <string name="Medio">Grado Medio</string>
+    <string name="Superior">Grado Superior</string>
+    <string name="Serviciosadmin">Servicios administrativos</string>
+    <string name="GestionAdmin">Gestión administrativa</string>
+    <string name="Admin">Administración y Finanzas</string>
+    <string name="Dam">DAM</string>
+
+</resources>
