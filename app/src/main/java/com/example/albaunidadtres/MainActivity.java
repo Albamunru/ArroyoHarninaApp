@@ -26,7 +26,7 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
     private Spinner miSpinner;
     private Context context=this;
   private RepositorioOpciones repositorioOpciones;
-
+private Button miBotonUso;
 
 
 
@@ -36,6 +36,7 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
 
 
    
+    @SuppressLint("MissingInflatedId")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -56,6 +57,16 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
         miBotonDiversidad=findViewById(R.id.buttonDiversidad);
 
         registerForContextMenu(botonContextual);
+        miBotonUso=findViewById(R.id.buttontiempo);
+
+        miBotonUso.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent= new Intent(v.getContext(), MainActivity5.class);
+                startActivity(intent);
+
+            }
+        });
 
 
 
