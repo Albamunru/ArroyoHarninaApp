@@ -2,10 +2,12 @@ package com.example.albaunidadtres;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.annotation.SuppressLint;
 import android.app.usage.UsageStats;
 import android.app.usage.UsageStatsManager;
 import android.content.Context;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -18,6 +20,10 @@ import java.util.concurrent.TimeUnit;
 public class MainActivity5 extends AppCompatActivity {
 
     private TextView uso;
+    private ImageView contento;
+    private ImageView normal;
+    private ImageView triste;
+    @SuppressLint("MissingInflatedId")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -26,6 +32,9 @@ public class MainActivity5 extends AppCompatActivity {
         uso= findViewById(R.id.textViewUso);
         ImageView temporizador= findViewById(R.id.imageView2);
         Glide.with(this).asGif().load(R.drawable.tiempo).into(temporizador);
+        contento=findViewById(R.id.imageViewContento);
+        normal=findViewById(R.id.imageViewnormal);
+        triste=findViewById(R.id.imageViewenfadado);
 
 
 
@@ -69,7 +78,24 @@ public class MainActivity5 extends AppCompatActivity {
 
         String tiempoDeUso = "Hoy has usado el movil "+horas+" h "+ minutos+" min "+ segundos+" seg ";
 
+        if (horas <= 2) {
+            contento.setVisibility(View.VISIBLE);
+            normal.setVisibility(View.INVISIBLE);
+            triste.setVisibility(View.INVISIBLE);
+        } else if (horas > 2 && horas < 3) {
+            contento.setVisibility(View.INVISIBLE);
+            normal.setVisibility(View.VISIBLE);
+            triste.setVisibility(View.INVISIBLE);
+        } else {
+            contento.setVisibility(View.INVISIBLE);
+            normal.setVisibility(View.INVISIBLE);
+            triste.setVisibility(View.VISIBLE);
+        }
+
+
         uso.setText(tiempoDeUso);
+
+
 
 
 

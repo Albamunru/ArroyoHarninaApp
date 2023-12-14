@@ -12,17 +12,16 @@
         android:id="@+id/textViewUso"
         android:layout_width="397dp"
         android:layout_height="46dp"
-        android:paddingTop="15dp"
         android:background="#ffcaaf"
         android:fontFamily="sans-serif-black"
+        android:paddingTop="15dp"
         android:textAlignment="center"
         android:textColor="#0E0E0E"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.633"
-        />
+        app:layout_constraintVertical_bias="0.633" />
 
     <ImageView
         android:id="@+id/imageView2"
@@ -35,7 +34,38 @@
         app:layout_constraintVertical_bias="0.182"
         app:srcCompat="@drawable/tiempo" />
 
+    <ImageView
+        android:id="@+id/imageViewContento"
+        android:layout_width="227dp"
+        android:layout_height="186dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textViewUso"
+        app:srcCompat="@drawable/contento" />
 
+    <ImageView
+        android:id="@+id/imageViewnormal"
+        android:layout_width="227dp"
+        android:layout_height="186dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textViewUso"
+        app:srcCompat="@drawable/normal" />
+
+    <ImageView
+        android:id="@+id/imageViewenfadado"
+        android:layout_width="227dp"
+        android:layout_height="186dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textViewUso"
+        app:srcCompat="@drawable/enfadado" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
