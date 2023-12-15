@@ -34,6 +34,8 @@ public class MainActivity4 extends AppCompatActivity {
     private String nombreDocumento;
     private Button botonGuardar;
     private Button botonRecuperar;
+    private Button escribir;
+
 private TextView info;
     @SuppressLint("MissingInflatedId")
     @Override
@@ -45,6 +47,9 @@ private TextView info;
          miMultilinea= findViewById(R.id.editTextMultiLine);
          botonGuardar= findViewById(R.id.buttonGuardar);
          botonRecuperar= findViewById(R.id.buttonRecuperar);
+         escribir=findViewById(R.id.buttonVer);
+
+
          info= findViewById(R.id.textViewInfo);
 
         Date fechaHora = new Date();
@@ -72,7 +77,12 @@ private TextView info;
          });
 
 
-
+escribir.setOnClickListener(new View.OnClickListener() {
+    @Override
+    public void onClick(View v) {
+        miMultilinea.setEnabled(true);
+    }
+});
          botonGuardar.setOnClickListener(new View.OnClickListener() {
              @Override
              public void onClick(View v) {
@@ -87,41 +97,44 @@ private TextView info;
         botonRecuperar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                InputStream in = null;
-                try {
-                    in = openFileInput(nombreDocumento);
-                    if (in != null) {
-                        InputStreamReader tem = new InputStreamReader(in);
-                        BufferedReader leer = new BufferedReader(tem);
-                        String str;
-                        StringBuilder buf = new StringBuilder();
-                        while ((str = leer.readLine()) != null) {
-                            buf.append(str).append("\n");
-                        }
-                        miMultilinea.setText("");
-                        //in.close();
-                        miMultilinea.setText(buf.toString());
-                    }
-                } catch (FileNotFoundException e) {
-                    info.setText("No tienes nada en esta fecha");
-                    miMultilinea.setText("");
-                    new Handler().postDelayed(new Runnable() {
-                        @Override
-                        public void run() {
-                            info.setText("");
-                        }
-                    }, 2000);
+                if (nombreDocumento == null || nombreDocumento.isEmpty()) {
 
-                    //throw new RuntimeException(e);
-                } catch (IOException e) {
-                    throw new RuntimeException(e);
-                } finally {
+                    Toast.makeText(getApplicationContext(), "Selecciona una fecha primero", Toast.LENGTH_SHORT).show();
+                } else {
+                    miMultilinea.setEnabled(false);
+                    InputStream in = null;
                     try {
+                        in = openFileInput(nombreDocumento);
                         if (in != null) {
-                            in.close();
+                            InputStreamReader tem = new InputStreamReader(in);
+                            BufferedReader leer = new BufferedReader(tem);
+                            String str;
+                            StringBuilder buf = new StringBuilder();
+                            while ((str = leer.readLine()) != null) {
+                                buf.append(str).append("\n");
+                            }
+                            miMultilinea.setText("");
+                            miMultilinea.setText(buf.toString());
                         }
+                    } catch (FileNotFoundException e) {
+                        info.setText("No tienes nada en esta fecha");
+                        miMultilinea.setText("");
+                        new Handler().postDelayed(new Runnable() {
+                            @Override
+                            public void run() {
+                                info.setText("");
+                            }
+                        }, 2000);
                     } catch (IOException e) {
                         throw new RuntimeException(e);
+                    } finally {
+                        try {
+                            if (in != null) {
+                                in.close();
+                            }
+                        } catch (IOException e) {
+                            throw new RuntimeException(e);
+                        }
                     }
                 }
             }

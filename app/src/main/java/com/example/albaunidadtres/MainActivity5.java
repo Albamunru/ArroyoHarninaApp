@@ -6,7 +6,10 @@ import android.annotation.SuppressLint;
 import android.app.usage.UsageStats;
 import android.app.usage.UsageStatsManager;
 import android.content.Context;
+import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
+import android.provider.Settings;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -47,9 +50,8 @@ public class MainActivity5 extends AppCompatActivity {
         intent.setData(uri);
         startActivity(intent);*/
 
-
-       /* Intent intent = new Intent(Settings.ACTION_USAGE_ACCESS_SETTINGS);
-        startActivity(intent);*/
+        Intent intent = new Intent(Settings.ACTION_USAGE_ACCESS_SETTINGS);
+        startActivity(intent);
 
 
         UsageStatsManager tiempoUso = (UsageStatsManager) getSystemService(Context.USAGE_STATS_SERVICE);
